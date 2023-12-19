@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import 'katex/dist/katex.min.css'
 import Latex from 'react-latex-next'
 import { Flex, Heading, TextArea } from '@radix-ui/themes'
 

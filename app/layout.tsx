@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import '@radix-ui/themes/styles.css'
+import 'katex/dist/katex.min.css'
 
 export const metadata: Metadata = {
   title: 'LaTeX',
@@ -8,8 +9,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#FBDCEF' },
-    { media: '(prefers-color-scheme: dark)', color: '#4B143D' },
+    { media: '(prefers-color-scheme: light)', color: '#FEF7FB' },
+    { media: '(prefers-color-scheme: dark)', color: '#21121D' },
   ],
 }
 
