@@ -5,6 +5,9 @@ import 'katex/dist/katex.min.css'
 export const metadata: Metadata = {
   title: 'LaTeX',
   description: 'LaTeX renderer.',
+  icons: {
+    icon: 'https://latex.neko03.moe/favicon.ico',
+  },
 }
 
 export const viewport: Viewport = {
