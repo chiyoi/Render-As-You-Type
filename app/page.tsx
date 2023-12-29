@@ -6,10 +6,10 @@ import { Flex, Heading, TextArea } from '@radix-ui/themes'
 export default function Page() {
   const [formula, setFormula] = useState('')
   return (
-    <Flex mx='auto' mb='auto' gap='2' direction='column' style={{ minWidth: '40vw' }}>
+    <Flex mx='auto' align='center' mb='auto' gap='3' direction='column'>
       <Heading align='center'>LaTeX</Heading>
-      <TextArea placeholder='Input formula...' value={formula} onChange={e => setFormula(e.target.value)} />
-      <Latex>{'$$' + formula + '$$'}</Latex>
+      <TextArea size='3' placeholder='Input formula...' value={formula} onChange={e => setFormula(e.target.value)} style={{ width: '50vw' }} />
+      <Latex>{formula}</Latex>
     </Flex>
   )
 }
