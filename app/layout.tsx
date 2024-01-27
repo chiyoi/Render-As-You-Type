@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from 'next'
 import '@radix-ui/themes/styles.css'
 import 'katex/dist/katex.min.css'
+import { ChildrenProps } from '@/app/internal/props'
+import Body from '@/app/components/Body'
 
 export const metadata: Metadata = {
   title: 'LaTeX',
-  description: 'LaTeX renderer.',
+  description: 'Render LaTeX on type.',
   icons: {
     icon: 'https://latex.neko03.moe/favicon.ico',
   },
@@ -17,12 +19,10 @@ export const viewport: Viewport = {
   ],
 }
 
-export default ({ children }: { children: React.ReactNode }) => {
-  return (
-    <html lang="en">
-      <body style={{ margin: 0 }}>
-        {children}
-      </body>
-    </html>
-  )
-}
+export default ({ children }: ChildrenProps) => (
+  <html lang='en'>
+    <Body style={{ margin: 0 }}>
+      {children}
+    </Body>
+  </html>
+)
