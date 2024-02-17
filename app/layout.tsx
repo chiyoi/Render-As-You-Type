@@ -5,10 +5,10 @@ import Body from '@neko03/general/components/Body'
 import { ChildrenProps } from '@/app/internal/props'
 
 export const metadata: Metadata = {
-  title: 'LaTeX',
-  description: 'Render LaTeX on type.',
+  title: 'Render As You Type',
+  description: 'Do some rendering as you type.',
   icons: {
-    icon: 'https://latex.neko03.moe/favicon.ico',
+    icon: '/assets/Icons/op2.png',
   },
 }
 

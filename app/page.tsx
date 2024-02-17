@@ -1,21 +1,23 @@
 'use client'
-import { useState } from 'react'
-import Latex from 'react-latex-next'
-import { Flex, Heading, TextArea } from '@radix-ui/themes'
-import { FontNotoSansMono } from '@/app/internal/fonts'
+import { Flex, Tabs } from '@radix-ui/themes'
+import LaTeX from '@/app/components/LaTeX'
+import BlurHash from '@/app/components/BlurHash'
 
 export default () => {
-  const [formula, setFormula] = useState('')
   return (
     <Flex mt='9' mx='auto' align='center' mb='auto' gap='3' direction='column'>
-      <Heading align='center' style={{ ...FontNotoSansMono }}>LaTeX</Heading>
-      <TextArea size='3' placeholder='Input formula...' value={formula} onChange={
-        e => setFormula(e.target.value)
-      } style={{
-        ...FontNotoSansMono,
-        width: '50vw',
-      }} />
-      <Latex>{formula}</Latex>
+      <Tabs.Root defaultValue='blurhash'>
+        <Tabs.List>
+          <Tabs.Trigger value='latex'>LaTex</Tabs.Trigger>
+          <Tabs.Trigger value='blurhash'>BlurHash</Tabs.Trigger>
+        </Tabs.List>
+        <Tabs.Content value="latex">
+          <LaTeX />
+        </Tabs.Content>
+        <Tabs.Content value="blurhash">
+          <BlurHash />
+        </Tabs.Content>
+      </Tabs.Root>
     </Flex>
   )
 }

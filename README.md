@@ -1,3 +1,3 @@
-# LaTeX
-Render LaTeX on type.
-> [latex.neko03.moe](https://latex.neko03.moe)
+# Render As You Type
+Do some rendering as you type.
+> https://op2.neko03.moe
