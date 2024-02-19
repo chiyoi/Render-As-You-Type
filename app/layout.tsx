@@ -5,7 +5,7 @@ import Body from '@neko03/general/components/Body'
 import { ChildrenProps } from '@/app/internal/props'
 
 export const metadata: Metadata = {
-  title: 'Render As You Type',
+  title: 'Render as You Type',
   description: 'Do some rendering as you type.',
   icons: {
     icon: '/assets/Icons/op2.png',
