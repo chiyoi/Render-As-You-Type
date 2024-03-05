@@ -1,3 +1,3 @@
 # Render as You Type
 Do some rendering as you type.
-> https://op2.neko03.moe
+> https://render-as-you-type.neko03.moe

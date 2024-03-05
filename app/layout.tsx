@@ -1,8 +1,8 @@
 import '@radix-ui/themes/styles.css'
 import 'katex/dist/katex.min.css'
 import type { Metadata, Viewport } from 'next'
-import Body from '@neko03/general/components/Body'
 import { ChildrenProps } from '@/app/internal/props'
+import Body from '@/app/components/Body'
 
 export const metadata: Metadata = {
   title: 'Render as You Type',
