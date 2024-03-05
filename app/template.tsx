@@ -3,9 +3,9 @@ import { ThemeProvider } from 'next-themes'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { Theme } from '@radix-ui/themes'
 import { ToastProvider } from '@neko03/general/toast'
+import HomeLink from '@neko03/general/components/HomeLink'
 import { queryClient } from '@/app/internal/configurations'
 import { ChildrenProps } from '@/app/internal/props'
-import HomeLink from '@/app/components/HomeLink'
 
 export default ({ children }: ChildrenProps) => {
   return (

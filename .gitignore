@@ -2,6 +2,8 @@
 .vscode
 *.swp
 
+*.dev*
+
 # yarn
 .yarn
 node_modules
