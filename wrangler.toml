@@ -1,5 +1,5 @@
 name = "render-as-you-type"
 
 [[r2_buckets]]
-binding = "NEKO03_ASSETS"
-bucket_name = "neko03-assets"
+binding = "NEKO03_STORAGE"
+bucket_name = "neko03-storage"

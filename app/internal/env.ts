@@ -1,3 +1,3 @@
 export type Env = {
-  NEKO03_ASSETS: R2Bucket,
+  NEKO03_STORAGE: R2Bucket,
 }
