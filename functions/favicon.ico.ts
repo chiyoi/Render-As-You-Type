@@ -4,6 +4,7 @@ import { Env } from '@/app/internal/env'
 const key = 'Icons/op2.png'
 
 export const onRequest: PagesFunction<Env> = async ({ env }) => {
+  console.debug(Object.keys(env))
   const item = await env.NEKO03_ASSETS.get(key)
   if (item === null) return error(404)
   const headers = new Headers()
