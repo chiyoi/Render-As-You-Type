@@ -1,10 +1,11 @@
 import { error } from 'itty-router'
-import { Env } from '@/app/internal/env'
+import { Env } from '@/functions/internal/env'
 
 const key = 'Icons/op2.png'
 
 export const onRequest: PagesFunction<Env> = async ({ env }) => {
-  const item = await env.NEKO03_STORAGE.get(key)
+  const { assets } = env
+  const item = await assets.get(key)
   if (item === null) return error(404)
   const headers = new Headers()
   item.writeHttpMetadata(headers)

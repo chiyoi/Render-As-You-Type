@@ -2,7 +2,7 @@
 .vscode
 *.swp
 
-*.dev*
+dev
 
 # yarn
 .yarn

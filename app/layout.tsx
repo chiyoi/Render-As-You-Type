@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Render as You Type',
   description: 'Do some rendering as you type.',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/icon.png',
   },
 }
 
