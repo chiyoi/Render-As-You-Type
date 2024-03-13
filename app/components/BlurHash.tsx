@@ -13,7 +13,7 @@ export default () => {
   const [imageHeight, setImageHeight] = useState<number>()
   const [componentX, setComponentX] = useState('5')
   const [componentY, setComponentY] = useState('5')
-  const [blurhash, setBlurhash] = useState('Select an image to generate the blurhash or input a blurhash here to preview.')
+  const [blurhash, setBlurhash] = useState('')
   useEffect(() => {
     if (imageURL === undefined) return
     const x = Number(componentX)
@@ -57,7 +57,9 @@ export default () => {
         <Box>
           <ArrowRightIcon />
         </Box>
-        <TextArea size='3' value={blurhash} onChange={e => {
+        <TextArea size='3' value={blurhash} placeholder={
+          'Select an image to generate the blurhash or input a blurhash here to preview.'
+        } onChange={e => {
           setImageURL(undefined)
           setBlurhash(e.target.value)
         }} style={{
