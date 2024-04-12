@@ -1,4 +1,4 @@
-import { encode as blurhashEncode } from "blurhash"
+import { encode as blurhashEncode } from 'blurhash'
 
 const resolution = 180
 const size = ({ width, height }: { width: number, height: number }) =>

@@ -1,5 +1,5 @@
 import { error } from 'itty-router'
-import { Env } from '@/functions/internal/env'
+import { Env } from './common/env'
 
 const key = 'Icons/op2.png'
 

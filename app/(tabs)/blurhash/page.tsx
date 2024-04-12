@@ -1,11 +1,13 @@
+'use client'
 import { useEffect, useState } from 'react'
 import { Avatar, Heading, TextField, Text, Flex, Link, TextArea, Box } from '@radix-ui/themes'
-import { FontNotoSansMono } from '@/app/internal/fonts'
-import { encode, loadImage } from '@/app/internal/blurhash'
 import { styled } from '@stitches/react'
 import { ArrowRightIcon } from '@radix-ui/react-icons'
-import { Blurhash } from 'react-blurhash'
 import { isBlurhashValid } from 'blurhash'
+import { Blurhash } from 'react-blurhash'
+
+import { FontNotoSansMono } from '../../common/fonts'
+import { encode, loadImage } from './blurhash'
 
 export default () => {
   const [imageURL, setImageURL] = useState<string>()
@@ -25,9 +27,9 @@ export default () => {
     setBlurhash('Component size must be between 1 and 9.')
   }, [imageURL, componentX, componentY])
   return (
-    <Flex direction='column' m='3' gap='5' align='center' style={{ width: '80vw' }}>
+    <>
       <Heading style={{ ...FontNotoSansMono }}>BlurHash</Heading>
-      <Flex gap='3' align='center' justify='center' width='100%'>
+      <Flex mt='3' gap='3' align='center' justify='center' width='100%'>
         <Link onClick={() => {
           const input = document.createElement('input')
           input.type = 'file'
@@ -78,25 +80,21 @@ export default () => {
           ...FontNotoSansMono,
         }} />
       </Flex>
-      <Flex gap='3'>
+      <Flex gap='3' mt='3'>
         <Text style={{ whiteSpace: 'nowrap' }}>Component Size:</Text>
-        <TextField.Root>
-          <TextField.Input value={componentX} style={{
-            ...FontNotoSansMono,
-          }} onChange={
-            e => setComponentX(e.target.value)
-          } />
-        </TextField.Root>
+        <TextField.Root value={componentX} onChange={
+          e => setComponentX(e.target.value)
+        } style={{
+          ...FontNotoSansMono,
+        }} />
         <Text>x</Text>
-        <TextField.Root>
-          <TextField.Input value={componentY} style={{
-            ...FontNotoSansMono,
-          }} onChange={
-            e => setComponentY(e.target.value)
-          } />
-        </TextField.Root>
+        <TextField.Root value={componentY} onChange={
+          e => setComponentY(e.target.value)
+        } style={{
+          ...FontNotoSansMono,
+        }} />
       </Flex>
-    </Flex >
+    </>
   )
 }
 

@@ -1,8 +1,10 @@
 import '@radix-ui/themes/styles.css'
 import 'katex/dist/katex.min.css'
 import type { Metadata, Viewport } from 'next'
-import Body from '@neko03/general/components/Body'
-import { ChildrenProps } from '@/app/internal/props'
+
+import Body from './common/Body'
+import { ChildrenProps } from './common/props'
+import ClientLayout from './ClientLayout'
 
 export const metadata: Metadata = {
   title: 'Render as You Type',
@@ -21,8 +23,8 @@ export const viewport: Viewport = {
 
 export default ({ children }: ChildrenProps) => (
   <html lang='en'>
-    <Body style={{ margin: 0 }}>
+    <ClientLayout>
       {children}
-    </Body>
+    </ClientLayout>
   </html>
 )
