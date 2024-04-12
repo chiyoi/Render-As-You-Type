@@ -1,4 +1,5 @@
 name = "render-as-you-type"
+pages_build_output_dir = ".next/out"
 
 [[r2_buckets]]
 binding = "assets"
