@@ -1,6 +1,6 @@
 'use client'
 import { useMemo, useState } from 'react'
-import { Heading, Text, TextArea } from '@radix-ui/themes'
+import { Heading, Link, Text, TextArea } from '@radix-ui/themes'
 import { toKatakana } from 'wanakana'
 
 import { FontNotoSansMono } from '../../common/fonts'
@@ -35,7 +35,7 @@ export default () => {
   return (
     <>
       <Heading style={{ ...FontNotoSansMono }}>Animal Crossing Item Price</Heading>
-      <Text mt='3' size='1' as='div'>Check how much does it value for your recently got items.</Text>
+      <Text mt='3' size='1' as='div'>Check how much does it value for your recently got items. Data from <Link>https://game8.jp/atsumare-doubutsunomori</Link>.</Text>
       <TextArea mt='3' size='3' placeholder='Input item name...' value={itemName} onChange={e => {
         setItemName(e.target.value)
       }} style={
