@@ -1,3 +1,4 @@
+'use client'
 import { Flex, Text } from '@radix-ui/themes'
 
 import { FontHachiMaruPop } from './common/fonts'

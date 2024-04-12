@@ -1,11 +1,11 @@
 'use client'
+import { z } from 'zod'
 import { useMemo, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
 import { Heading, Link, Text, TextArea } from '@radix-ui/themes'
 import { toKatakana } from 'wanakana'
 
 import { FontNotoSansMono } from '../../common/fonts'
-import { useQuery } from '@tanstack/react-query'
-import { z } from 'zod'
 
 export default () => {
   const [itemName, setItemName] = useState('')
@@ -35,7 +35,7 @@ export default () => {
   return (
     <>
       <Heading style={{ ...FontNotoSansMono }}>Animal Crossing Item Price</Heading>
-      <Text mt='3' size='1' as='div'>Check how much does it value for your recently got items. Data from <Link>https://game8.jp/atsumare-doubutsunomori</Link>.</Text>
+      <Text mt='3' size='1' as='div'>Check how much does it value for your recently got items. Data from <Link href='https://game8.jp/atsumare-doubutsunomori'>https://game8.jp/atsumare-doubutsunomori</Link>.</Text>
       <TextArea mt='3' size='3' placeholder='Input item name...' value={itemName} onChange={e => {
         setItemName(e.target.value)
       }} style={
@@ -43,9 +43,9 @@ export default () => {
       } />
       <Text mt='3' as='div' style={FontNotoSansMono}>
         {itemName === '' ? (
-          'Enter item name...'
-        ) : items.length === 0 ? (
-          'I think there is not an item name starts with that.'
+          'Input item name...'
+        ) : itemsFound.length === 0 ? (
+          '(No result~)'
         ) : (itemsFound.map(
           item => <Text as='div'>{item.name}: {item.price}</Text>
         ))}
@@ -77,7 +77,6 @@ const useQueryItems = (inputs: QueryItemsInput[]) => {
           .filter(x => x && /\d/.test(x.price))
       }
     })
-    console.debug(data)
     items = [...items, ...data ?? []]
     if (error !== null) errors.push(error)
     success = success && isSuccess

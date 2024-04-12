@@ -1,30 +1,31 @@
 'use client'
-import { Card, Container, TabNav } from '@radix-ui/themes'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
+import { Card, TabNav } from '@radix-ui/themes'
 
 import { ChildrenProps } from '../common/props'
-import { useMounted } from '../common/hooks'
 
 export default ({ children }: ChildrenProps) => {
-  return useMounted() && (
+  const pathname = usePathname()
+  return (
     <>
       <TabNav.Root>
-        <TabNav.Link asChild active={location.pathname === '/latex'}>
+        <TabNav.Link asChild active={pathname === '/latex'}>
           <Link href="/latex">
             LaTex
           </Link>
         </TabNav.Link>
-        <TabNav.Link asChild active={location.pathname === '/blurhash'}>
+        <TabNav.Link asChild active={pathname === '/blurhash'}>
           <Link href="/blurhash">
             BlurHash
           </Link>
         </TabNav.Link>
-        <TabNav.Link asChild active={location.pathname === '/github-card'}>
+        <TabNav.Link asChild active={pathname === '/github-card'}>
           <Link href="/github-card">
             Github Card
           </Link>
         </TabNav.Link>
-        <TabNav.Link asChild active={location.pathname === '/animal-crossing-item-price'}>
+        <TabNav.Link asChild active={pathname === '/animal-crossing-item-price'}>
           <Link href="/animal-crossing-item-price">
             Animal Crossing Item Price
           </Link>
