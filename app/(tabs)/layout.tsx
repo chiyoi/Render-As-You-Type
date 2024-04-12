@@ -7,7 +7,7 @@ import { useMounted } from '../common/hooks'
 
 export default ({ children }: ChildrenProps) => {
   return useMounted() && (
-    <Container pt='9' px='5' size='4'>
+    <>
       <TabNav.Root>
         <TabNav.Link asChild active={location.pathname === '/latex'}>
           <Link href="/latex">
@@ -33,6 +33,6 @@ export default ({ children }: ChildrenProps) => {
       <Card mt='3'>
         {children}
       </Card>
-    </Container>
+    </>
   )
 }

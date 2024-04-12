@@ -1,7 +1,7 @@
 'use client'
 import { ThemeProvider } from 'next-themes'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { Card, Container, Tabs, Theme } from '@radix-ui/themes'
+import { Container, Theme } from '@radix-ui/themes'
 
 import { ToastProvider } from './common/toast'
 import { ChildrenProps } from './common/props'
@@ -17,7 +17,9 @@ export default ({ children }: ChildrenProps) => {
         <Theme accentColor='pink' hasBackground={false}>
           <QueryClientProvider client={queryClient}>
             <ToastProvider>
-              {children}
+              <Container pt='9' px='5' size='4'>
+                {children}
+              </Container>
               <HomeLink title='neko03★moe' href='https://neko03.moe' />
             </ToastProvider>
           </QueryClientProvider>
