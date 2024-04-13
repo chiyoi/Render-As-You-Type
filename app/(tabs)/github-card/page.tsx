@@ -11,7 +11,7 @@ export default () => {
   return (
     <>
       <Heading style={{ ...FontNotoSansMono }}>Github Card</Heading>
-      <TextArea mt='3' size='3' placeholder='Input repository path...' value={repositoryBuffer} style={{
+      <TextArea autoFocus mt='3' size='3' placeholder='Input repository path...' value={repositoryBuffer} style={{
         ...FontNotoSansMono,
         width: '100%',
       }} onChange={e => {

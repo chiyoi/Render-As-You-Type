@@ -6,9 +6,15 @@ import { toKatakana } from 'wanakana'
 
 import { FontNotoSansMono } from '../../common/fonts'
 import { useQueryItems } from './query-item'
+import { useFocus } from '../../common/hooks'
 
 export default () => {
   const [itemName, setItemName] = useState('')
+  const [inputRef, focusInput] = useFocus()
+  const clear = () => {
+    setItemName('')
+    focusInput()
+  }
 
   const { items, errors, success } = useQueryItems([
     { pageID: '340694', priceColumn: 4 }, // うみのさち
@@ -36,10 +42,10 @@ export default () => {
     <>
       <Heading style={{ ...FontNotoSansMono }}>Animal Crossing Item Price</Heading>
       <Text mt='3' size='1' as='div'>Check how much does it value for your recently got items. Data from <Link href='https://game8.jp/atsumare-doubutsunomori'>https://game8.jp/atsumare-doubutsunomori</Link>.</Text>
-      <TextField.Root mt='3' size='3' placeholder='Input item name...' value={itemName} onChange={
+      <TextField.Root autoFocus ref={inputRef} mt='3' size='3' placeholder='Input item name...' value={itemName} onChange={
         e => setItemName(e.target.value)
       } onKeyDown={e => {
-        if (e.key === 'Escape') setItemName('')
+        if (e.key === 'Escape') clear()
       }} style={
         FontNotoSansMono
       }>
@@ -47,7 +53,7 @@ export default () => {
           <MagnifyingGlassIcon />
         </TextField.Slot>
         <TextField.Slot>
-          <IconButton size='2' variant='ghost' onClick={() => setItemName('')}>
+          <IconButton size='2' variant='ghost' onClick={clear}>
             <Cross2Icon />
           </IconButton>
         </TextField.Slot>

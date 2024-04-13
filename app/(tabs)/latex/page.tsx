@@ -10,7 +10,7 @@ export default () => {
   return (
     <>
       <Heading style={{ ...FontNotoSansMono }}>LaTeX</Heading>
-      <TextArea mt='3' size='3' placeholder='Input formula...' value={formula} onChange={
+      <TextArea autoFocus mt='3' size='3' placeholder='Input formula...' value={formula} onChange={
         e => setFormula(e.target.value)
       } style={
         FontNotoSansMono
