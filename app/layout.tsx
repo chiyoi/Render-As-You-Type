@@ -2,9 +2,9 @@ import '@radix-ui/themes/styles.css'
 import 'katex/dist/katex.min.css'
 import type { Metadata, Viewport } from 'next'
 
-import Body from './common/Body'
-import { ChildrenProps } from './common/props'
-import ClientLayout from './ClientLayout'
+import { NotoSansMono } from '@/app/common/fonts'
+import { ChildrenProps } from '@/app/common/props'
+import ClientLayout from '@/app/ClientLayout'
 
 export const metadata: Metadata = {
   title: 'Render as You Type',
@@ -22,7 +22,7 @@ export const viewport: Viewport = {
 }
 
 export default ({ children }: ChildrenProps) => (
-  <html lang='en'>
+  <html lang='en' className={NotoSansMono.variable}>
     <ClientLayout>
       {children}
     </ClientLayout>

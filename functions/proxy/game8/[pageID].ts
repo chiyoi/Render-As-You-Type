@@ -1,4 +1,4 @@
-import { Env } from '../common/env'
+import { Env } from '../../common/env'
 
 const endpoint = 'https://game8.jp/atsumare-doubutsunomori'
 

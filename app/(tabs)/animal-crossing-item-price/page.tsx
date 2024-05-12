@@ -4,9 +4,8 @@ import { Heading, IconButton, Link, Text, TextField } from '@radix-ui/themes'
 import { Cross2Icon, MagnifyingGlassIcon } from '@radix-ui/react-icons'
 import { toKatakana } from 'wanakana'
 
-import { FontNotoSansMono } from '../../common/fonts'
-import { useQueryItems } from './query-item'
-import { useFocus } from '../../common/hooks'
+import { useFocus } from '@/app/common/hooks'
+import { useQueryItems } from '@/app/(tabs)/animal-crossing-item-price/query-items'
 
 export default () => {
   const [itemName, setItemName] = useState('')
@@ -40,15 +39,13 @@ export default () => {
   )
   return (
     <>
-      <Heading style={{ ...FontNotoSansMono }}>Animal Crossing Item Price</Heading>
+      <Heading>Animal Crossing Item Price</Heading>
       <Text mt='3' size='1' as='div'>Check how much does it value for your recently got items. Data from <Link href='https://game8.jp/atsumare-doubutsunomori'>https://game8.jp/atsumare-doubutsunomori</Link>.</Text>
       <TextField.Root autoFocus ref={inputRef} mt='3' size='3' placeholder='Input item name...' value={itemName} onChange={
         e => setItemName(e.target.value)
       } onKeyDown={e => {
         if (e.key === 'Escape') clear()
-      }} style={
-        FontNotoSansMono
-      }>
+      }}>
         <TextField.Slot>
           <MagnifyingGlassIcon />
         </TextField.Slot>
@@ -58,7 +55,7 @@ export default () => {
           </IconButton>
         </TextField.Slot>
       </TextField.Root>
-      <Text mt='3' as='div' style={FontNotoSansMono}>
+      <Text mt='3' as='div'>
         {itemName === '' ? (
           'Input item name...'
         ) : itemsFound.length === 0 ? (

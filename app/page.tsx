@@ -1,9 +1,10 @@
 'use client'
 import { Text } from '@radix-ui/themes'
-import Redirect from './common/Redirect'
+
+import Redirect from '@/app/common/Redirect'
 
 export default () => (
   <Text as='div'>
-    <Redirect href='/animal-crossing-item-price' />
+    <Redirect href='/quick-look' />
   </Text>
 )

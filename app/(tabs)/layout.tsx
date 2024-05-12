@@ -3,7 +3,8 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { Card, TabNav } from '@radix-ui/themes'
 
-import { ChildrenProps } from '../common/props'
+import { ChildrenProps } from '@/app/common/props'
+
 
 export default ({ children }: ChildrenProps) => {
   const pathname = usePathname()
@@ -11,23 +12,28 @@ export default ({ children }: ChildrenProps) => {
     <>
       <TabNav.Root>
         <TabNav.Link asChild active={pathname === '/latex'}>
-          <Link href="/latex">
+          <Link href='/latex'>
             LaTex
           </Link>
         </TabNav.Link>
         <TabNav.Link asChild active={pathname === '/blurhash'}>
-          <Link href="/blurhash">
+          <Link href='/blurhash'>
             BlurHash
           </Link>
         </TabNav.Link>
         <TabNav.Link asChild active={pathname === '/github-card'}>
-          <Link href="/github-card">
+          <Link href='/github-card'>
             Github Card
           </Link>
         </TabNav.Link>
         <TabNav.Link asChild active={pathname === '/animal-crossing-item-price'}>
-          <Link href="/animal-crossing-item-price">
+          <Link href='/animal-crossing-item-price'>
             Animal Crossing Item Price
+          </Link>
+        </TabNav.Link>
+        <TabNav.Link asChild active={pathname === '/quick-look'}>
+          <Link href='quick-look'>
+            Quick Look
           </Link>
         </TabNav.Link>
       </TabNav.Root>

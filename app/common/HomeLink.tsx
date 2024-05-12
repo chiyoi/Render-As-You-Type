@@ -5,7 +5,7 @@ import { GitHubLogoIcon } from '@radix-ui/react-icons'
 import { styled } from '@stitches/react'
 
 import { moe } from './moe'
-import { FontHachiMaruPop } from './fonts'
+import { HachiMaruPop } from './fonts'
 
 export default ({ title, href }: Props) => (
   <Flex gap='3' align='center' style={{
@@ -20,7 +20,7 @@ export default ({ title, href }: Props) => (
         <Heading>
           {moe(title).map((c, i) => (
             <Text key={i} size={c.char === '★' ? '1' : '6'} style={{
-              ...FontHachiMaruPop,
+              ...HachiMaruPop.style,
               color: `var(--${c.color}-a8)`,
             }}>
               {c.char}

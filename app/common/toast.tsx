@@ -4,7 +4,7 @@ import { Flex, IconButton } from '@radix-ui/themes'
 import { Cross2Icon } from '@radix-ui/react-icons'
 import * as Toast from '@radix-ui/react-toast'
 
-import { FontNotoSansMono } from './fonts'
+import { NotoSansMono } from './fonts'
 import { useMounted } from './hooks'
 import { ChildrenProps } from './props'
 
@@ -37,7 +37,7 @@ export const ToastProvider = ({ children }: ChildrenProps) => {
             marginTop: 5,
             marginBlock: 5,
           }}>
-            <Toast.Title style={{ ...FontNotoSansMono }}>{content}</Toast.Title>
+            <Toast.Title style={NotoSansMono.style}>{content}</Toast.Title>
             <Toast.Close asChild style={{
               gridArea: 'action',
             }}>

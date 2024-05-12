@@ -6,8 +6,7 @@ import { ArrowRightIcon } from '@radix-ui/react-icons'
 import { isBlurhashValid } from 'blurhash'
 import { Blurhash } from 'react-blurhash'
 
-import { FontNotoSansMono } from '../../common/fonts'
-import { encode, loadImage } from './blurhash'
+import { encode, loadImage } from '@/app/(tabs)/blurhash/blurhash'
 
 export default () => {
   const [imageURL, setImageURL] = useState<string>()
@@ -28,7 +27,7 @@ export default () => {
   }, [imageURL, componentX, componentY])
   return (
     <>
-      <Heading style={{ ...FontNotoSansMono }}>BlurHash</Heading>
+      <Heading>BlurHash</Heading>
       <Flex mt='3' gap='3' align='center' justify='center' width='100%'>
         <Link onClick={() => {
           const input = document.createElement('input')
@@ -48,7 +47,6 @@ export default () => {
           input.click()
         }}>
           <LinkAvatar radius='none' src={imageURL} fallback='Select Image' style={{
-            ...FontNotoSansMono,
             width: 150,
             height: imageWidth && imageHeight ? (
               150 * imageHeight / imageWidth
@@ -76,23 +74,17 @@ export default () => {
               blurhash
             } />
           ) : 'Blurhash Preview'
-        } style={{
-          ...FontNotoSansMono,
-        }} />
+        } />
       </Flex>
       <Flex gap='3' mt='3'>
         <Text style={{ whiteSpace: 'nowrap' }}>Component Size:</Text>
         <TextField.Root value={componentX} onChange={
           e => setComponentX(e.target.value)
-        } style={{
-          ...FontNotoSansMono,
-        }} />
+        } />
         <Text>x</Text>
         <TextField.Root value={componentY} onChange={
           e => setComponentY(e.target.value)
-        } style={{
-          ...FontNotoSansMono,
-        }} />
+        } />
       </Flex>
     </>
   )

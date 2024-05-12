@@ -3,10 +3,10 @@ import { ThemeProvider } from 'next-themes'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Container, Theme } from '@radix-ui/themes'
 
-import { ToastProvider } from './common/toast'
-import { ChildrenProps } from './common/props'
-import Body from './common/Body'
-import HomeLink from './common/HomeLink'
+import { ChildrenProps } from '@/app/common/props'
+import Body from '@/app/common/Body'
+import { ToastProvider } from '@/app/common/toast'
+import HomeLink from '@/app/common/HomeLink'
 
 export const queryClient = new QueryClient()
 
