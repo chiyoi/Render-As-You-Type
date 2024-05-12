@@ -31,11 +31,6 @@ export default ({ children }: ChildrenProps) => {
             Animal Crossing Item Price
           </Link>
         </TabNav.Link>
-        <TabNav.Link asChild active={pathname === '/quick-look'}>
-          <Link href='quick-look'>
-            Quick Look
-          </Link>
-        </TabNav.Link>
       </TabNav.Root>
       <Card mt='3'>
         {children}

@@ -5,6 +5,6 @@ import Redirect from '@/app/common/Redirect'
 
 export default () => (
   <Text as='div'>
-    <Redirect href='/quick-look' />
+    <Redirect href='/latex' />
   </Text>
 )
