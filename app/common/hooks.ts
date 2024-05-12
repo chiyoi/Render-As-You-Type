@@ -1,7 +1,8 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
-import { useQuery as useReactQuery } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import { StatusError } from 'itty-router'
+import { ZodType, z } from 'zod'
 
 export const useMounted = () => {
   const [mounted, setMounted] = useState(false)
@@ -21,13 +22,34 @@ export const useQueryText = (endpoint: string): [
 ] | [
   null, 'loading',
 ] => {
-  const { data, error, isSuccess, isError } = useReactQuery({
+  const { data, error, isSuccess, isError } = useQuery({
     queryKey: [endpoint],
     queryFn: async () => {
       const response = await fetch(endpoint)
       if (!response.ok) throw new StatusError(response.status, await response.text())
       return response.text()
     },
+  })
+  if (isError) return [error, 'error']
+  if (!isSuccess) return [null, 'loading']
+  return [data, 'success']
+}
+
+export const useQueryData = <DataType extends ZodType>(endpoint: string, Data: DataType): [
+  z.infer<DataType>, 'success',
+] | [
+  Error, 'error'
+] | [
+  null, 'loading',
+] => {
+  const { data, error, isSuccess, isError } = useQuery({
+    queryKey: [endpoint],
+    queryFn: async () => {
+      const response = await fetch(endpoint)
+      if (!response.ok)
+        throw new StatusError(response.status, await response.text())
+      return Data.parse(await response.json())
+    }
   })
   if (isError) return [error, 'error']
   if (!isSuccess) return [null, 'loading']

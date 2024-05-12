@@ -1,28 +1,20 @@
 'use client'
-import { useMemo } from 'react'
 import { Avatar, Grid, Heading, IconButton, Text, TextField } from '@radix-ui/themes'
 import { Cross2Icon, MagnifyingGlassIcon } from '@radix-ui/react-icons'
 
-import { useDelayedState, useFocus, useQueryText } from '@/app/common/hooks'
+import { useDelayedState, useFocus, useQueryData } from '@/app/common/hooks'
 import { HachiMaruPop } from '@/app/common/fonts'
+import { z } from 'zod'
 
 export default () => {
-  const [queryBuffer, query, setQuery] = useDelayedState('', 3000)
+  const [queryBuffer, query, setQuery] = useDelayedState('', 1000)
   const [inputRef, focusInput] = useFocus()
   const clear = () => {
     setQuery('')
     focusInput()
   }
 
-  const [data, status] = useQueryText(`/proxy/google/${query}`)
-  const images = useMemo(() => {
-    if (status !== 'success') return
-    const parser = new DOMParser()
-    const dom = parser.parseFromString(data, 'text/html')
-    return [...dom.querySelectorAll('img')]
-      .map(x => x.src)
-      .filter(x => x.startsWith('https') && !x.endsWith('gif'))
-  }, [data, status])
+  const [data, status] = useQueryData(`/proxy/serp/${query}`, z.string().array())
 
   if (status === 'error') return (
     <>
@@ -50,7 +42,7 @@ export default () => {
       </TextField.Root>
       {status === 'success' ? (
         <Grid mt='3' columns='4' gap='1'>
-          {images?.map(x => (
+          {data.map(x => (
             <Avatar radius='small' src={x} fallback={
               <Text color='pink' style={HachiMaruPop.style}>
                 Image Lost...
