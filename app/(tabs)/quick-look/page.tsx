@@ -20,8 +20,8 @@ export default () => {
     const parser = new DOMParser()
     const dom = parser.parseFromString(data, 'text/html')
     return [...dom.querySelectorAll('img')]
-      .filter(x => x.src.startsWith('https'))
       .map(x => x.src)
+      .filter(x => x.startsWith('https') && !x.endsWith('gif'))
   }, [data, status])
 
   if (status === 'error') return (
