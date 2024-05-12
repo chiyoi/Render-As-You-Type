@@ -7,7 +7,7 @@ import { useDelayedState, useFocus, useQueryText } from '@/app/common/hooks'
 import { HachiMaruPop } from '@/app/common/fonts'
 
 export default () => {
-  const [queryBuffer, query, setQuery] = useDelayedState('', 1000)
+  const [queryBuffer, query, setQuery] = useDelayedState('', 5000)
   const [inputRef, focusInput] = useFocus()
   const clear = () => {
     setQuery('')
